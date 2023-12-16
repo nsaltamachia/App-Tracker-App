@@ -7,6 +7,14 @@ const logger = require("morgan");
 require("dotenv").config();
 require("./backend/config/database");
 
+// AWS S3
+const AWS = require("aws-sdk");
+const s3 = new AWS.S3({
+  // Configure AWS credentials and region if necessary
+  // credentials: new AWS.Credentials(accessKeyId, secretAccessKey),
+  // region: 'your-region',
+});
+
 const app = express();
 
 app.use(logger("dev"));

@@ -31,6 +31,11 @@ const post = process.env.PORT || 3001;
 
 // Put API routes here, before the "catch all" route
 app.use("/api/users", require("./backend/routes/api/users"));
+app.use('/api/jobs', require('./backend/routes/api/jobs'));
+app.use("/api/contacts", require("./backend/routes/api/contacts"));
+app.use("/api/letters", require("./backend/routes/api/letters"));
+app.use("/api/resumes", require("./backend/routes/api/resumes"));
+app.use("api/skills", require("./backend/routes/api/skills"));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests

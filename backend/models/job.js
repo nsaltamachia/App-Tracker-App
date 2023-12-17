@@ -27,13 +27,13 @@ const jobSchema = new mongoose.Schema(
         trim: true,
         lowercase: true,
         required: true,
-},
+        },
     state: {
         type: String,
         trim: true,
         lowercase: true,
         required: true,
-    },
+        },
     remote: {
         type: Boolean,
         default: false,
@@ -42,46 +42,46 @@ const jobSchema = new mongoose.Schema(
         type: Number,
         required: true,
         },
-        skills: {
-            type: [String],
-            default: [],
+    skills: {
+        type: [String],
+        default: [],
         },
-        coverLetter: {
-            type: String,
-            trim: true,
+    coverLetter: {
+        type: String,
+        trim: true,
         },
-        resume: {
-            type: String,
-            trim: true,
-            required: true,
+    resume: {
+        type: String,
+        trim: true,
+        required: true,
         },
-        otherNotes: {
-            type: String,
-            trim: true,
+    otherNotes: {
+        type: String,
+        trim: true,
         },
-        contacts: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Contact",
-            default: [],
+    contacts: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Contact",
+        default: [],
         },
-        followUpDate: {
-            type: Date,
-            default: () => {
-                const currentDate = new Date();
-                currentDate.setDate(currentDate.getDate() + 7);
-                return currentDate;
+    followUpDate: {
+        type: Date,
+        default: () => {
+            const currentDate = new Date();
+            currentDate.setDate(currentDate.getDate() + 7);
+            return currentDate;
             }
         },
 
-        status: {
-            type: String,
-            enum: ['Not Yet Submitted', 'Submitted', 'Pending Follow-up', 'Awaiting Response', 'Interview Scheduled', 'Awaiting Post-Interview Response', 'Rejected'],
-            default: 'Not Yet Submitted',
-        },
-        whereFiled: {
-            type: String,
-            required: true,
-        },
+    status: {
+        type: String,
+        enum: ['Not Yet Submitted', 'Submitted', 'Pending Follow-up', 'Awaiting Response', 'Interview Scheduled', 'Awaiting Post-Interview Response', 'Rejected'],
+        default: 'Not Yet Submitted',
+    },
+    whereFiled: {
+        type: String,
+        required: true,
+    },
         },  
   {
     timestamps: true,

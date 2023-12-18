@@ -19,6 +19,9 @@ export default function App() {
     },
   ]);
 
+  // function addJob(newJob) {
+  //   setJobs([...jobs, newJob]);
+
   return (
     <main className="App">
       {user ? (

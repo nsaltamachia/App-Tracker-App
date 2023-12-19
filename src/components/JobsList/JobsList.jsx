@@ -17,16 +17,14 @@ export default function JobsList({ jobs, setJobs }) {
 
   return (
     <>
-      
-        <ul >
+      <div className="job-card-container">
+        <div className="job-card">
           {jobs.map((job, index) => (
-            <li key={index}>
-              {job.jobTitle}
-              &nbsp;|&nbsp;
-              {job.companyName}
-              &nbsp;|&nbsp;
-              {job.status}
-              <div>
+            <div className="card-data" key={index}>
+              <p>{job.jobTitle}</p>
+              <p>{job.companyName}</p>
+              <p>{job.status}</p>
+              <div className="button-container">
                 {/* edit link is going to edit/undefined */}
                 <Link to={`/edit/${job._id}`} className="edit-button">
                   Edit Entry
@@ -38,10 +36,10 @@ export default function JobsList({ jobs, setJobs }) {
                   Delete Entry
                 </button>
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
-      
+        </div>
+      </div>
     </>
   );
 }

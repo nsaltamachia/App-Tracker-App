@@ -67,6 +67,7 @@ export default function UpdateJobForm({ jobs, setJobs }) {
           placeholder="Application Status"
         />
         <button>Submit Edit</button>
+        <button onclick={() => navigate("/")}>BACK TO LIST</button>
       </form>
     </>
   );

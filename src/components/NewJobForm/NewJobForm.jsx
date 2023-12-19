@@ -18,35 +18,21 @@ export default function NewJobForm({ jobs, setJobs }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    // setJobs([...jobs, newJob])
+    setJobs([...jobs, newJob]);
     const createdJob = await jobsService.create(newJob);
+
     console.log(createdJob);
-    // try {
-    //     const response = await fetch("/api/jobs", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Authorization": `Bearer ${getToken()}`},
-    //         credentials: "include",
-    //         body: JSON.stringify(newJob),
-    //     });
-    //     console.log(jobs)
-    //     // console.log(response)
-    //     if (response.ok) {
-    //         const newJob = await response.json();
-    //         setJobs([...jobs, newJob])
-    //         console.log("job added successfully")
 
-    //     } else {
-    //         console.log("Job Creation Failed - Try Again");
-    //     }
-    // } catch {
-    //     setError("Job Creation Failed - Try Again");
-    // }
+    // Add the newly created job to the jobs state
+    setJobs((prevJobs) => [...prevJobs, createdJob]);
+
+    // Clear the New Job form on submission
+    setNewJob({
+      jobTitle: "",
+      companyName: "",
+      status: "",
+    });
   }
-
-
-
 
   return (
     <form onSubmit={handleSubmit}>
@@ -71,7 +57,7 @@ export default function NewJobForm({ jobs, setJobs }) {
         onChange={handleChange}
         placeholder="Application Status"
       />
-      <button>ADD JOB</button>
+      <button type="submit">ADD JOB</button>
     </form>
   );
 }

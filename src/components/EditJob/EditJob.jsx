@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import * as jobsService from "../../utilities/jobs-service";
 
@@ -9,12 +9,11 @@ export default function UpdateJobForm({ jobs, setJobs }) {
     companyName: "",
     status: "",
   });
-  // let oldJobTitle = "";
+
   const [error, setError] = useState("");
   const { id } = useParams();
   useEffect(() => {
     const job = jobs.find((job) => job._id == id);
-    // oldJobTitle = job.jobTitle;
 
     if (job) setJob(job);
   }, [id]);
@@ -24,17 +23,26 @@ export default function UpdateJobForm({ jobs, setJobs }) {
     setError("");
   }
 
+  const navigate = useNavigate();
+
   async function handleSubmit(event) {
     event.preventDefault();
-    const result = await jobsService.updateJob(id, job);
-    console.log(result);
-    setJob(result);
+    const updatedJob = await jobsService.updateJob(id, job);
+    console.log(updatedJob);
+    setJob(updatedJob);
+
+    // Update the jobs state
+    const updatedJobs = jobs.map((job) => (job._id === id ? updatedJob : job));
+    setJobs(updatedJobs);
+
+    //redirect to home page
+    navigate("/");
   }
 
   return (
     <>
       <h1>
-        Edit {job.jobTitle} at {job.companyName}
+        Edit "{job.jobTitle}" at {job.companyName}
       </h1>
       <form onSubmit={handleSubmit}>
         <input

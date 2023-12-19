@@ -9,6 +9,7 @@ import { getUser } from "../../utilities/users-service";
 import NewJobForm from "../../components/NewJobForm/NewJobForm";
 import JobsList from "../../components/JobsList/JobsList";
 import * as jobsService from "../../utilities/jobs-service";
+import EditJob from "../../components/EditJob/EditJob";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -17,7 +18,7 @@ export default function App() {
   useEffect(() => {
     async function getJobs() {
       const jobs = await jobsService.getAllJobs();
-      console.log(jobs);
+      // console.log(jobs);
       setJobs(jobs);
     }
     getJobs();
@@ -28,12 +29,21 @@ export default function App() {
       {user ? (
         <>
           <NavBar user={user} setUser={setUser} />
-          <NewJobForm setJobs={setJobs} jobs={jobs} />
-          <JobsList setJobs={setJobs} jobs={jobs} />
+
           <Routes>
             {/* Route components in here */}
-            <Route path="/orders/new" element={<NewOrderPage user={user} />} />
-            <Route path="/orders" element={<OrderHistoryPage />} />
+            <Route
+              path="/"
+              element={
+                <>
+                  <NewJobForm setJobs={setJobs} jobs={jobs} />
+                  <JobsList setJobs={setJobs} jobs={jobs} />
+                </>
+              }
+            />
+            <Route path="/edit/:id" element={<EditJob  />} />
+            {/* <Route path="/orders/new" element={<NewOrderPage user={user} />} />
+            <Route path="/orders" element={<OrderHistoryPage />} /> */}
           </Routes>
         </>
       ) : (

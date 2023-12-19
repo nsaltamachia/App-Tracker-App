@@ -10,6 +10,7 @@ module.exports = {
   delete: deleteJob,
   edit,
   update,
+  show,
 };
 
 async function create(req, res) {
@@ -67,7 +68,10 @@ async function update(req, res) {
   }
 }
 
-
+async function show(req, res) {
+  const job = await Job.findById(req.params.id);
+  res.json(job);
+}
 
 
 /*-- Helper Functions --*/

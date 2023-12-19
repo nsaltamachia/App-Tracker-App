@@ -1,35 +1,56 @@
 import { useState } from "react";
-import NewJobForm from "../NewJobForm/NewJobForm";
+
 import * as jobsService from "../../utilities/jobs-service";
 
-export default function editJob({ jobs, setJobs }) {
+export default function UpdateJobForm({ setJobs, id }) {
+  const [updatedJob, setUpdatedJob] = useState({
+    jobTitle: "",
+    companyName: "",
+    status: "",
+  });
 
-    const [newJob, setNewJob] = useState({
-        jobTitle: "",
-        companyName: "",
-        status: "",
-    });
- 
-    const [error, setError] = useState("");
+  const [error, setError] = useState("");
 
-    function handleChange(event) {
-        setNewJob({ ...newJob, [event.target.name]: event.target.value });
-        setError("");
-    }
+  function handleChange(event) {
+    setUpdatedJob({ ...updatedJob, [event.target.name]: event.target.value });
+    setError("");
+  }
 
-    async function handleSubmit(event) {
-        event.preventDefault();
-        // setJobs([...jobs, newJob])
-        const updatedJob = await jobsService.update(_id);
-        console.log(updatedJob);
-        setJobs(updatedJob);
-        return (
-            <NewJobForm
-                newJob={newJob}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}
-                error={error}
-            />
-        );
-    }
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    const updatedJob = await jobsService.updateJob(id, updatedJob);
+    console.log(updatedJob);
+    setJobs(updatedJob);
+  }
+
+  return (
+    <>
+      <h1>Edit (job title) at (companyname)</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="jobTitle"
+          value={updatedJob.jobTitle}
+          onChange={handleChange}
+          placeholder="Job Title"
+        />
+        <input
+          type="text"
+          name="companyName"
+          value={updatedJob.companyName}
+          onChange={handleChange}
+          placeholder="Company Name"
+        />
+        <input
+          type="text"
+          name="status"
+          value={updatedJob.status}
+          onChange={handleChange}
+          placeholder="Application Status"
+        />
+        <button>Submit Edit</button>
+      </form>
+    </>
+  );
 }

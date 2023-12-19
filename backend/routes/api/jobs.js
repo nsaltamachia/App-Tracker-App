@@ -6,7 +6,7 @@ const Job = require('../../models/job');
 
 
 router.get("/", jobsCtrl.index);
-// router.get("/:id", jobsCtrl.show);
+router.get("/:id", jobsCtrl.show);
 router.post("/", ensureLoggedIn, jobsCtrl.create);
 router.delete("/:id", jobsCtrl.delete);
 router.put("/:id", jobsCtrl.update);

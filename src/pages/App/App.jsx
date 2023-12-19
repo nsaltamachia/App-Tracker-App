@@ -41,7 +41,7 @@ export default function App() {
                 </>
               }
             />
-            <Route path="/edit/:id" element={<EditJob  />} />
+            <Route path="/edit/:id" element={<EditJob jobs={jobs} />} />
             {/* <Route path="/orders/new" element={<NewOrderPage user={user} />} />
             <Route path="/orders" element={<OrderHistoryPage />} /> */}
           </Routes>

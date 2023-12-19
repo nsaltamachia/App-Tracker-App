@@ -8,7 +8,6 @@ module.exports = {
   create,
   createJWT,
   delete: deleteJob,
-  edit,
   update,
   show,
 };
@@ -48,15 +47,11 @@ async function index(req, res) {
   res.json(jobs);
 }
 
-async function edit(req, res) {
-  const job = await Job.findById(req.params.id);
-  res.render("jobs/edit", { job });
-}
 
 async function update(req, res) {
   try {
-    console.log(req.body);
-    const updatedJob = await Job.findOneAndUpdate(
+    // console.log(req.body);
+    const updatedJob = await Job.findByIdAndUpdate(
       { _id: req.params.id },
       req.body,
       { new: true }

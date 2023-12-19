@@ -17,12 +17,9 @@ export async function deleteJob(id) {
   return jobsAPI.deleteJob(id);
 }
 
-export async function editJob({ jobData, id }) {
-  return jobsAPI.edit(jobData, id);
-}
 
-export async function updateJob({updatedJobData, id}) {
-  return jobsAPI.update(id);
+export async function updateJob( id, job) {
+  return jobsAPI.update(id, job);
 }
 
 

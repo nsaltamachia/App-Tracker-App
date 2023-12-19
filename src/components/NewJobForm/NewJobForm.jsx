@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import "./NewJobForm.css";
-import { getToken } from "../../utilities/users-service";
-import sendRequest from "../../utilities/send-request";
+import  * as jobsService  from "../../utilities/jobs-service";
 
 
-export default function NewJobForm(props) {
+
+export default function NewJobForm({jobs, setJobs}) {
     const [newJob, setNewJob] = useState({
         jobTitle: "",
         companyName: "",
@@ -20,28 +20,31 @@ export default function NewJobForm(props) {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        try {
-            props.setJobs([...props.jobs, newJob])
-            const response = await fetch("/api/jobs", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json", 
-                    "Authorization": `Bearer ${getToken()}`},
-                credentials: "include",
-                body: JSON.stringify(newJob),
-            });
-            console.log(newJob)
-            console.log(response)
-            if (response.ok) {
-                console.log("data added successfully")
-                // const data = await response.json();
-                // props.setJobs([...props.jobs, data]);
-            } else {
-                console.log("Job Creation Failed - Try Again");
-            }
-        } catch {
-            setError("Job Creation Failed - Try Again");
-        }
+        // setJobs([...jobs, newJob])
+        const createdJob = await jobsService.create(newJob);
+        console.log(createdJob);
+        // try {
+        //     const response = await fetch("/api/jobs", {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json", 
+        //             "Authorization": `Bearer ${getToken()}`},
+        //         credentials: "include",
+        //         body: JSON.stringify(newJob),
+        //     });
+        //     console.log(jobs)
+        //     // console.log(response)
+        //     if (response.ok) {
+        //         const newJob = await response.json();
+        //         setJobs([...jobs, newJob])
+        //         console.log("job added successfully")
+                
+        //     } else {
+        //         console.log("Job Creation Failed - Try Again");
+        //     }
+        // } catch {
+        //     setError("Job Creation Failed - Try Again");
+        // }
     }
 
     return (

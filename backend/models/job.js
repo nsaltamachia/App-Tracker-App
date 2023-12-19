@@ -15,16 +15,7 @@ const jobSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: [
-        "Not Yet Submitted",
-        "Submitted",
-        "Pending Follow-up",
-        "Awaiting Response",
-        "Interview Scheduled",
-        "Awaiting Post-Interview Response",
-        "Rejected",
-      ],
-      default: "Not Yet Submitted",
+      required: true,
     },
   },
   {

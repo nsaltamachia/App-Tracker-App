@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import AuthPage from "../AuthPage/AuthPage";
@@ -8,20 +8,21 @@ import NavBar from "../../components/NavBar/NavBar";
 import { getUser } from "../../utilities/users-service";
 import NewJobForm from "../../components/NewJobForm/NewJobForm";
 import JobsList from "../../components/JobsList/JobsList";
+import * as jobsService from "../../utilities/jobs-service";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const [jobs, setJobs] = useState([
-    {
-      jobTitle: "title",
-      companyName: "company",
-      status: "filed",
-    },
-  ]);
+  const [jobs, setJobs] = useState([]);
 
-  // function addJob(newJob) {
-  //   setJobs([...jobs, newJob]);
-
+  useEffect(() => {
+    async function getJobs() {
+      const jobs = await jobsService.getAllJobs();
+      console.log(jobs);
+      setJobs(jobs);
+    }
+    getJobs();
+  }, []);
+  
   return (
     <main className="App">
       {user ? (

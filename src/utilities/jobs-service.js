@@ -7,3 +7,7 @@ export async function create(jobData) {
 export async function getAllJobs() {
   return jobsAPI.getAll();
 }
+
+export async function deleteJob(id) {
+  return jobsAPI.deleteJob(id);
+}

@@ -1,9 +1,11 @@
 import "./JobsList.css";
 import { Link } from "react-router-dom";
+import * as jobsService from "../../utilities/jobs-service";
 
 export default function JobsList({jobs, setJobs}) {
-  function handleDelete(id) {
-    setJobs(jobs.filter((job) => job.id !== id));
+  async function handleDelete(id) {
+    await jobsService.deleteJob(id);
+   
     
   }
   return (
@@ -19,7 +21,7 @@ export default function JobsList({jobs, setJobs}) {
             <div>
               <Link to={`/edit/${job.id}`} className="edit-button">Edit Entry</Link>
               <button
-                className="delete-button" onClick={() => handleDelete(job.id)}>Delete Entry
+                className="delete-button" onClick={() => handleDelete(job._id)}>Delete Entry
               </button>
             </div>
           </li>

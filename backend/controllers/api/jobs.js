@@ -26,17 +26,17 @@ async function create(req, res) {
 
 async function deleteJob(req, res) {
   try {
-    const { id } = req.params;
+    console.log(req.params.id);
     // Delete the Job from the database
-    const deletedjob = await Job.findByIdAndRemove(req.params.id);
+    const deletedJob = await Job.findOneAndDelete({ _id: req.params.id });
     console.log(deletedJob);
-    res.json(deletedJob);
+    
     if (!deletedJob) {
       return res.status(404).json({ error: "Item not found" });
     }
     return res.status(200).json({ message: "Item deleted successfully" });
   } catch (error) {
-    return res.status(500).json({ error: "Server error" });
+    console.log(error);
   }
 }
 

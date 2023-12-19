@@ -10,3 +10,7 @@ export async function create(jobData) {
 export async function getAll() {
     return sendRequest(BASE_URL);
 }
+
+export async function deleteJob(id) {
+    return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
+}

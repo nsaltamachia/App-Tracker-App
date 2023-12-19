@@ -14,3 +14,11 @@ export async function getAll() {
 export async function deleteJob(id) {
     return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
 }
+
+export async function edit(jobData, id) {
+    return sendRequest(`${BASE_URL}/${id}`, 'GET', jobData);
+}
+
+export async function update(jobData, id) {
+    return sendRequest(`${BASE_URL}/${id}`, 'PUT', jobData);
+}

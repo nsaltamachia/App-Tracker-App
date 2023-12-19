@@ -1,13 +1,15 @@
 const Job = require("../../models/job");
-const User = require("../../models/user");
+
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
+
 
 module.exports = {
   index,
   create,
   createJWT,
   delete: deleteJob,
+  edit,
+  update,
 };
 
 async function create(req, res) {
@@ -44,6 +46,29 @@ async function index(req, res) {
   const jobs = await Job.find({});
   res.json(jobs);
 }
+
+async function edit(req, res) {
+  const job = await Job.findById(req.params.id);
+  res.render("jobs/edit", { job });
+}
+
+async function update(req, res) {
+  try {
+    console.log(req.body);
+    const updatedJob = await Job.findOneAndUpdate(
+      { _id: req.params.id },
+      req.body,
+      { new: true }
+    );
+    console.log(updatedJob);
+    res.status(200).json(updatedJob);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+
 
 /*-- Helper Functions --*/
 

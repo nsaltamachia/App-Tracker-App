@@ -11,3 +11,11 @@ export async function getAllJobs() {
 export async function deleteJob(id) {
   return jobsAPI.deleteJob(id);
 }
+
+export async function editJob({ jobData, id }) {
+  return jobsAPI.edit(jobData, id);
+}
+
+export async function updateJob({jobData, id}) {
+  return jobsAPI.update(jobData, id);
+}

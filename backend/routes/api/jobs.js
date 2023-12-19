@@ -9,7 +9,7 @@ router.get("/", jobsCtrl.index);
 // router.get("/:id", jobsCtrl.show);
 router.post("/", ensureLoggedIn, jobsCtrl.create);
 router.delete("/:id", jobsCtrl.delete);
-// router.put("/:id", jobsCtrl.update);
+router.put("/:id", jobsCtrl.update);
 
 
 

@@ -13,6 +13,26 @@ const jobSchema = new mongoose.Schema(
       lowercase: true,
       required: true,
     },
+    jobDescription: {
+      //how do I indicate that this is a text area?
+      type: String,
+      trim: true,
+    },
+    submissionDate: {
+      type: Date,
+      default: Date.now,
+    },
+    salary: {
+      type: Number,
+    },
+    followUpDate: {
+      type: Date,
+      default: () => {
+        const currentDate = new Date();
+        currentDate.setDate(currentDate.getDate() + 7);
+        return currentDate;
+      },
+    },
     status: {
       type: String,
       required: true,

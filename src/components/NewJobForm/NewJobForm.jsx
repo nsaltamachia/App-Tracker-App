@@ -53,10 +53,44 @@ export default function NewJobForm({ jobs, setJobs }) {
       <input
         type="text"
         name="status"
+        value={newJob.description}
+        onChange={handleChange}
+        placeholder="Type a short description"
+      />
+      <input
+        type="date"
+        name="status"
+        value={newJob.submissionDate || ""}
+        onChange={handleChange}
+        placeholder="Submission Date"
+      />
+      <input
+        type="text"
+        name="status"
+        value={newJob.salary}
+        onChange={handleChange}
+        placeholder="Salary/Range"
+      />
+      <input
+        type="text"
+        name="status"
+        value={newJob.followUpDate}
+        onChange={handleChange}
+        placeholder="Follow Up Date"
+      />
+      <select
+        name="status"
         value={newJob.status}
         onChange={handleChange}
         placeholder="Application Status"
-      />
+      >
+        <option value="">Select status</option>
+        <option value="Applied">Applied</option>
+        <option value="Pending Follow-up">Pending Follow-up</option>
+        <option value="Interview Scheduled">Interview Scheduled</option>
+        <option value="Rejected">Rejected</option>
+      </select>
+      
       <button type="submit">ADD JOB</button>
     </form>
   );

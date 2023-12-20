@@ -20,23 +20,27 @@ export default function JobsList({ jobs, setJobs }) {
       <div className="job-card-container">
         <div className="job-card">
           {jobs.map((job, index) => (
-            <div className="card-data" key={index}>
-              <p>{job.jobTitle}</p>
-              <p>{job.companyName}</p>
-              <p>{job.status}</p>
-              <div className="button-container">
-                {/* edit link is going to edit/undefined */}
-                <Link to={`/edit/${job._id}`} className="edit-button">
-                  Edit Entry
-                </Link>
-                <button
-                  className="delete-button"
-                  onClick={() => handleDelete(job._id)}
-                >
-                  Delete Entry
+            
+              <div className="card-data" key={index}>
+                <p>{job.jobTitle}</p>
+                <p>{job.companyName}</p>
+                <p>{job.status}</p>
+                <div className="button-container">
+                  {/* edit link is going to edit/undefined */}
+                  <Link to={`/edit/${job._id}`} className="edit-button">
+                    Edit Entry
+                  </Link>
+                  <button
+                    className="delete-button"
+                    onClick={() => handleDelete(job._id)}
+                  >
+                    Delete Entry
                 </button>
+              <Link to={`/show/${job._id}`} className="job-card-link">DETAILS</Link>
+                
               </div>
-            </div>
+              </div>
+            
           ))}
         </div>
       </div>

@@ -8,6 +8,7 @@ import NewJobForm from "../../components/NewJobForm/NewJobForm";
 import JobsList from "../../components/JobsList/JobsList";
 import * as jobsService from "../../utilities/jobs-service";
 import EditJob from "../../components/EditJob/EditJob";
+import JobDetail from "../../components/JobDetail/JobDetail";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -16,7 +17,7 @@ export default function App() {
   useEffect(() => {
     async function getJobs() {
       const jobs = await jobsService.getAllJobs();
-      // console.log(jobs);
+      console.log(jobs);
       setJobs(jobs);
     }
     getJobs();
@@ -43,6 +44,7 @@ export default function App() {
               path="/edit/:id"
               element={<EditJob setJobs={setJobs} jobs={jobs} />}
             />
+            <Route path="/show/:id" element={<JobDetail jobs={jobs} />} />
           </Routes>
         </>
       ) : (

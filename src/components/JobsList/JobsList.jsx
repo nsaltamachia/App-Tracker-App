@@ -26,7 +26,7 @@ export default function JobsList({ jobs, setJobs }) {
                 <p>{job.companyName}</p>
                 <p>{job.status}</p>
                 <div className="button-container">
-                  {/* edit link is going to edit/undefined */}
+                  
                   <Link to={`/edit/${job._id}`} className="edit-button">
                     Edit Entry
                   </Link>

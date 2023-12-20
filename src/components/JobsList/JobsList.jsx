@@ -18,14 +18,15 @@ export default function JobsList({ jobs, setJobs }) {
   return (
     <>
       <div className="job-card-container">
-        <div className="job-card">
+        
           {jobs.map((job, index) => (
             <div className="card-data" key={index}>
-              <p>{job.jobTitle}</p>
-              <p>{job.company}</p>
-              <p>{new Date(job.submissionDate).toLocaleDateString("en-US")}</p>
-              <p>{new Date(job.submissionDate).toLocaleDateString("en-US")}</p>
-              <p>{job.status}</p>
+              <p>Job Title: {job.jobTitle}</p>
+              <p>Company: {job.companyName}</p>
+              <p>Subit Date: {new Date(job.submissionDate).toLocaleDateString("en-US")}</p>
+              <p>Follow-up Date: {new Date(job.followUpDate).toLocaleDateString("en-US")}</p>
+              <p>Application Status: {job.status}</p>
+              <br />
               <div className="button-container">
                 <Link to={`/edit/${job._id}`} className="edit-button">
                   Edit Entry
@@ -43,7 +44,7 @@ export default function JobsList({ jobs, setJobs }) {
             </div>
           ))}
         </div>
-      </div>
+      
     </>
   );
 }

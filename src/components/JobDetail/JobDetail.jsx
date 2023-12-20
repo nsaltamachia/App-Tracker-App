@@ -17,13 +17,13 @@ export default function JobDetail({ jobs }) {
     <>
       <h1>Job Detail</h1>
       <div className="job-details">
-        <p>{job.jobTitle}</p>
-        <p>{job.companyName}</p>
-        <p>{job.jobDescription}</p>
-        <p>{new Date(job.submissionDate).toLocaleDateString("en-US")}</p>
-        <p>{job.salary}</p>
-        <p>{new Date(job.followUpDate).toLocaleDateString("en-US")}</p>
-        <p>{job.status}</p>
+        <p>Job Title: {job.jobTitle}</p>
+        <p>Company: {job.companyName}</p>
+        <p>Other Notes: {job.jobDescription}</p>
+        <p>Date Submitted: {new Date(job.submissionDate).toLocaleDateString("en-US")}</p>
+        <p>Salary/Range: {job.salary}</p>
+        <p>Follow-up Date: {new Date(job.followUpDate).toLocaleDateString("en-US")}</p>
+        <p>Application Status: {job.status}</p>
       </div>
 
       <Link to={`/edit/${job._id}`} className="edit-button">

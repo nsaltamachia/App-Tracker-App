@@ -14,9 +14,8 @@ const jobSchema = new mongoose.Schema(
       required: true,
     },
     jobDescription: {
-      //how do I indicate that this is a text area?
       type: String,
-      trim: true,
+      
     },
     submissionDate: {
       type: Date,

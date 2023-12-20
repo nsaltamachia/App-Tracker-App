@@ -35,7 +35,7 @@ export default function NewJobForm({ jobs, setJobs }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="new-job-form" onSubmit={handleSubmit}>
       <input
         type="text"
         name="jobTitle"
@@ -57,23 +57,36 @@ export default function NewJobForm({ jobs, setJobs }) {
         onChange={handleChange}
         placeholder="Type a short description"
       />
+
       <input
         type="date"
         name="submissionDate"
         value={
           newJob.submissionDate
-            ? newJob.submissionDate.toISOString().slice(0, 10)
+            ? new Date(newJob.submissionDate).toISOString().slice(0, 10)
             : ""
         }
         onChange={handleChange}
-        
+        placeholder="Date Submitted"
       />
+
       <input
         type="text"
         name="salary"
         value={newJob.salary}
         onChange={handleChange}
         placeholder="Salary/Range"
+      />
+      <input
+        type="date"
+        name="followUpDate"
+        value={
+          newJob.followUpdate
+            ? new Date(newJob.submissionDate).toISOString().slice(0, 10)
+            : ""
+        }
+        onChange={handleChange}
+        placeholder="Follow-up Date"
       />
 
       <select

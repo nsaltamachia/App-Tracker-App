@@ -1,8 +1,7 @@
-form {
+.new-job-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  border: black solid 1px;
   
 }
 
@@ -20,7 +19,18 @@ select {
   border-radius: 5px;
 }
 
+
+
 #add-job-button {
   grid-column-start: 2;
   width: 35%;
 }
+
+/* input:focus {
+  border-color: rgba(255, 238, 0, 0.5);
+} */
+
+/* button:disabled, form:invalid button[type="submit"] {
+  cursor: not-allowed;
+  background-color: #505050;
+} */

@@ -38,7 +38,7 @@ export default function JobsList({ jobs, setJobs }) {
                   Delete Entry
                 </Link>
                 <Link className="details-button" to={`/show/${job._id}`} >
-                  Details
+                  More Details
                 </Link>
               </div>
             </div>

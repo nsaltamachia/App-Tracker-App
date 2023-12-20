@@ -3,14 +3,23 @@ nav {
     justify-content: space-between;
 }
 
+span {
+    font-size: 1.7rem;
+    color: rgb(246, 250, 3);
+    text-shadow: -2px 1px 4px #2A64F6;
+}
+
 #welcome {
+    
+    background-color: rgb(233, 233, 233);
     font-size: 1.5rem;
     font-weight: bold;
-    margin: 0;
-    padding: 0;
-    color: #fff;
+    margin: 5px;
+    padding: 10px;
+    color: #2A64F6;
     text-align: center;
-    text-shadow: 2px 2px 4px #000000;
+    border-radius: 5px;
+    box-shadow: -2px 2px 3px rgba(111, 111, 111, 0.75); 
     text-transform: uppercase;
     letter-spacing: 0.1em;
     line-height: 1.5;
@@ -18,4 +27,9 @@ nav {
     margin-top: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
+}
+
+.log-out{
+box-shadow: -2px 2px 3px rgba(111, 111, 111, 0.75);
+
 }

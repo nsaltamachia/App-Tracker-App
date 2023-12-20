@@ -11,9 +11,9 @@ export default function NavBar({ user, setUser}) {
 
   return (
     <nav>
-      <p id="welcome" >Welcome, {user.name}</p>
+      <p id="welcome" >Welcome, {user.name}. <span>You've got this!</span></p>
      
-      <button to="" onClick={handleLogOut}>Log Out</button>
+      <button className="log-out" to="" onClick={handleLogOut}>Log Out</button>
     </nav>
   );
 }

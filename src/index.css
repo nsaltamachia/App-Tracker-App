@@ -124,8 +124,9 @@ button, a.button {
   
   margin: 1vmin;
   padding: 1vmin;
-  color: var(--white);
+  color: rgb(246, 250, 3);
   background-color: #2A64F6;
+  box-shadow: -2px 2px 3px rgba(111, 111, 111, 0.75);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;

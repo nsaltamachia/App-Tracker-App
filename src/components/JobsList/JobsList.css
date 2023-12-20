@@ -14,11 +14,12 @@
 }
 
 .card-data {
+    background-color: white;
+    /* background-color: rgb(233, 233, 233); */
     height: 275px;
     width: 300px;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: -2px 2px 5px rgba(111, 111, 111, 0.75);
     padding: 10px;
-    background-color: white;
     border-radius:5px;
 }
 
@@ -30,7 +31,7 @@
 
 .edit-button, .delete-button, .details-button{
     font-weight: bold;
-    box-shadow: 2px 2px 5px 0px rgba(111, 111, 111, 0.75);
+    box-shadow: -2px 2px 5px rgba(111, 111, 111, 0.75);
     justify-items: center;
     text-align: center;
     text-decoration: none;
@@ -42,7 +43,7 @@
     background-color: #2A64F6;
     color: white;
     
-
+box-shadow: -2px 2px 5px #000000; 
 }
 
 p{ 

@@ -2,7 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 60px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 input,
@@ -26,11 +29,3 @@ select {
   width: 35%;
 }
 
-/* input:focus {
-  border-color: rgba(255, 238, 0, 0.5);
-} */
-
-/* button:disabled, form:invalid button[type="submit"] {
-  cursor: not-allowed;
-  background-color: #505050;
-} */

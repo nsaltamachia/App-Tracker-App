@@ -34,7 +34,7 @@ export default function App() {
               path="/"
               element={
                 <>
-                  <NewJobForm setJobs={setJobs} jobs={jobs} />
+                  <NewJobForm className="new-job-form" setJobs={setJobs} jobs={jobs} />
                   <JobsList setJobs={setJobs} jobs={jobs} />
                 </>
               }

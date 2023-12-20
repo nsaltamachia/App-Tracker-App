@@ -82,7 +82,7 @@ export default function NewJobForm({ jobs, setJobs }) {
         name="followUpDate"
         value={
           newJob.followUpdate
-            ? new Date(newJob.submissionDate).toISOString().slice(0, 10)
+            ? new Date(newJob.followUpDate).toISOString().slice(0, 10)
             : ""
         }
         onChange={handleChange}

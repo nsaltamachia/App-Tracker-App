@@ -23,14 +23,14 @@ const jobSchema = new mongoose.Schema(
       default: Date.now,
     },
     salary: {
-      type: Number,
+      type: String,
     },
     followUpDate: {
       type: Date,
       default: () => {
         const currentDate = new Date();
         currentDate.setDate(currentDate.getDate() + 7);
-        return currentDate;
+        return currentDate.toLacalDateString("en-US");
       },
     },
     status: {

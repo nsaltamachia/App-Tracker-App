@@ -62,12 +62,45 @@ export default function UpdateJobForm({ jobs, setJobs }) {
         <input
           type="text"
           name="status"
+          value={job.description}
+          onChange={handleChange}
+          placeholder="Type a short description"
+        />
+        <input
+          type="date"
+          name="status"
+          value={job.submissionDate || ""}
+          onChange={handleChange}
+          placeholder="Submission Date"
+        />
+        <input
+          type="text"
+          name="status"
+          value={job.salary}
+          onChange={handleChange}
+          placeholder="Salary/Range"
+        />
+        <input
+          type="text"
+          name="status"
+          value={job.followUpDate}
+          onChange={handleChange}
+          placeholder="Follow Up Date"
+        />
+        <select
+          name="status"
           value={job.status}
           onChange={handleChange}
           placeholder="Application Status"
-        />
+        >
+          <option value="">Select status</option>
+          <option value="Applied">Applied</option>
+          <option value="Pending Follow-up">Pending Follow-up</option>
+          <option value="Interview Scheduled">Interview Scheduled</option>
+          <option value="Rejected">Rejected</option>
+        </select>
         <button>Submit Edit</button>
-        <button onclick={() => navigate("/")}>BACK TO LIST</button>
+        <button onClick={() => navigate("/")}>BACK TO LIST</button>
       </form>
     </>
   );

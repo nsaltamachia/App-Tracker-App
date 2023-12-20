@@ -1,13 +1,26 @@
-
-
-
-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: black solid 1px;
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  border: black solid 1px;
+  
 }
 
-input{
-    width: 50%;
+input,
+textarea,
+select {
+
+  color: darkgrey;
+  font-family: "Rubik", sans-serif;
+  font-size: 1.2rem;
+  padding: 10px;
+  /* margin: 10px; */
+  width: 70%;
+  box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+}
+
+#add-job-button {
+  grid-column-start: 2;
+  width: 35%;
 }

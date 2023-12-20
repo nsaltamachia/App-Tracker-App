@@ -50,34 +50,32 @@ export default function NewJobForm({ jobs, setJobs }) {
         onChange={handleChange}
         placeholder="Company Name"
       />
-      <input
+      <textarea
         type="text"
-        name="status"
+        name="description"
         value={newJob.description}
         onChange={handleChange}
         placeholder="Type a short description"
       />
       <input
         type="date"
-        name="status"
-        value={newJob.submissionDate || ""}
+        name="submissionDate"
+        value={
+          newJob.submissionDate
+            ? newJob.submissionDate.toISOString().slice(0, 10)
+            : ""
+        }
         onChange={handleChange}
-        placeholder="Submission Date"
+        
       />
       <input
         type="text"
-        name="status"
+        name="salary"
         value={newJob.salary}
         onChange={handleChange}
         placeholder="Salary/Range"
       />
-      <input
-        type="text"
-        name="status"
-        value={newJob.followUpDate}
-        onChange={handleChange}
-        placeholder="Follow Up Date"
-      />
+
       <select
         name="status"
         value={newJob.status}
@@ -90,8 +88,10 @@ export default function NewJobForm({ jobs, setJobs }) {
         <option value="Interview Scheduled">Interview Scheduled</option>
         <option value="Rejected">Rejected</option>
       </select>
-      
-      <button type="submit">ADD JOB</button>
+
+      <button id="add-job-button" type="submit">
+        ADD JOB
+      </button>
     </form>
   );
 }

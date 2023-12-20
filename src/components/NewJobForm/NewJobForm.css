@@ -1,0 +1,36 @@
+.new-job-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  
+}
+
+input,
+textarea,
+select {
+
+  color: darkgrey;
+  font-family: "Rubik", sans-serif;
+  font-size: 1.2rem;
+  padding: 10px;
+  /* margin: 10px; */
+  width: 70%;
+  box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+}
+
+
+
+#add-job-button {
+  grid-column-start: 2;
+  width: 35%;
+}
+
+/* input:focus {
+  border-color: rgba(255, 238, 0, 0.5);
+} */
+
+/* button:disabled, form:invalid button[type="submit"] {
+  cursor: not-allowed;
+  background-color: #505050;
+} */

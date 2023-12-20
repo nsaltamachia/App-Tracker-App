@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+
+.job-card-container{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px; 
+     
+}
+
+.card-data {
+    height: 275px;
+    width: 300px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    padding: 10px;
+    background-color: white;
+    border-radius:5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.edit-button, .delete-button, .details-button{
+    font-weight: bold;
+    box-shadow: 2px 2px 5px 0px rgba(111, 111, 111, 0.75);
+    justify-items: center;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px;
+    margin-bottom: -10px;
+    padding: 5px;
+    width: 30%;
+    border-radius: 10px;
+    background-color: #2A64F6;
+    color: white;
+    
+
+}
+
+p{ 
+    margin: 5px;
+    padding: 0;
+    line-height: 1.5;
+}

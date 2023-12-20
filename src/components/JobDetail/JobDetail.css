@@ -1,0 +1,18 @@
+
+.job-details{
+background-color: white;
+border-radius: 5px;
+padding: 1rem;
+margin: 1rem;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.job-details p {
+  font-size: 1.5rem;
+}
+
+.edit-link{
+    color: #1E90FF;
+    font-size: 1.5rem;
+    text-decoration: none;
+    
+}

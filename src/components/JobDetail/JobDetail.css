@@ -1,34 +1,32 @@
-
-.job-details{
-background-color: white;
-border-radius: 5px;
-padding: 1rem;
-margin: 1rem;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.job-details {
+  background-color: white;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .job-details p {
   font-size: 1.5rem;
 }
 
-.edit-link{
-    color: #1E90FF;
-    font-size: 1.5rem;
-    text-decoration: none;
-    
+.edit-link {
+  color: #1e90ff;
+  font-size: 1.5rem;
+  text-decoration: none;
 }
 
-#details-edit-button{
-    background-color: #2A64F6;
-    color: white;
-    border-radius: 5px;
-    padding: 1rem;
-    font-size: 1.rem
+#details-edit-button {
+  background-color: #2a64f6;
+  color: white;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1rem;
 }
 
 #details-back-button {
-    font-size: 1rem;
-     padding: .75rem;
-    background-color: #2A64F6;
-    color: white;
-    border-radius: 5px;
+  font-size: 1rem;
+  padding: 0.75rem;
+  background-color: #2a64f6;
+  color: white;
+  border-radius: 5px;
 }

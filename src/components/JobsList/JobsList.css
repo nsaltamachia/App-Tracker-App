@@ -1,54 +1,53 @@
 * {
-    box-sizing: border-box;
-    font-family: 'Rubik', sans-serif;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
 }
 
-
-.job-card-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    justify-content: flex-start;
-     
+.job-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .card-data {
-    background-color: white;
-    /* background-color: rgb(233, 233, 233); */
-    height: 275px;
-    width: 300px;
-    box-shadow: -2px 2px 5px rgba(111, 111, 111, 0.75);
-    padding: 10px;
-    border-radius:5px;
-    margin: 10px;
+  background-color: white;
+  /* background-color: rgb(233, 233, 233); */
+  height: 275px;
+  width: 300px;
+  box-shadow: -2px 2px 5px rgba(111, 111, 111, 0.75);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
 }
 
 .button-container {
-    display: flex;
-    justify-content: space-between;
-
+  display: flex;
+  justify-content: space-between;
 }
 
-.edit-button, .delete-button, .details-button{
-    font-weight: bold;
-    box-shadow: -2px 2px 5px rgba(111, 111, 111, 0.75);
-    justify-items: center;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px;
-    margin-bottom: -10px;
-    padding: 5px;
-    width: 30%;
-    border-radius: 10px;
-    background-color: #2A64F6;
-    color: white;
-    
-box-shadow: -2px 2px 5px #000000; 
+.edit-button,
+.delete-button,
+.details-button {
+  font-weight: bold;
+  box-shadow: -2px 2px 5px rgba(111, 111, 111, 0.75);
+  justify-items: center;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px;
+  margin-bottom: -10px;
+  padding: 5px;
+  width: 30%;
+  border-radius: 10px;
+  background-color: #2a64f6;
+  color: white;
+
+  box-shadow: -2px 2px 5px #000000;
 }
 
-p{ 
-    margin: 5px;
-    padding: 0;
-    line-height: 1.5;
+p {
+  margin: 5px;
+  padding: 0;
+  line-height: 1.5;
 }

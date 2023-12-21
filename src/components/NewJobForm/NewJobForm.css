@@ -11,7 +11,6 @@
 input,
 textarea,
 select {
-
   color: darkgrey;
   font-family: "Rubik", sans-serif;
   font-size: 1.2rem;
@@ -22,10 +21,7 @@ select {
   border-radius: 5px;
 }
 
-
-
 #add-job-button {
   grid-column-start: 2;
   width: 35%;
 }
-

@@ -17,7 +17,6 @@ export default function App() {
   useEffect(() => {
     async function getJobs() {
       const jobs = await jobsService.getAllJobs();
-      console.log(jobs);
       setJobs(jobs);
     }
     getJobs();
@@ -34,7 +33,11 @@ export default function App() {
               path="/"
               element={
                 <>
-                  <NewJobForm className="new-job-form" setJobs={setJobs} jobs={jobs} />
+                  <NewJobForm
+                    className="new-job-form"
+                    setJobs={setJobs}
+                    jobs={jobs}
+                  />
                   <JobsList setJobs={setJobs} jobs={jobs} />
                 </>
               }

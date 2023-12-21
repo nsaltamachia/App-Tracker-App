@@ -19,13 +19,22 @@ export default function JobsList({ jobs, setJobs }) {
     <>
       <h1>Existing Applications</h1>
       <div className="job-card-container">
-        
-          {jobs.sort((a, b) => new Date(b.submissionDate) - new Date(a.submissionDate)).map((job, index) => (
+        {jobs
+          .sort(
+            (a, b) => new Date(b.submissionDate) - new Date(a.submissionDate)
+          )
+          .map((job, index) => (
             <div className="card-data" key={index}>
               <p>Job Title: {job.jobTitle}</p>
               <p>Company: {job.companyName}</p>
-              <p>Subit Date: {new Date(job.submissionDate).toLocaleDateString("en-US")}</p>
-              <p>Follow-up Date: {new Date(job.followUpDate).toLocaleDateString("en-US")}</p>
+              <p>
+                Subit Date:{" "}
+                {new Date(job.submissionDate).toLocaleDateString("en-US")}
+              </p>
+              <p>
+                Follow-up Date:{" "}
+                {new Date(job.followUpDate).toLocaleDateString("en-US")}
+              </p>
               <p>Application Status: {job.status}</p>
               <br />
               <div className="button-container">
@@ -38,14 +47,13 @@ export default function JobsList({ jobs, setJobs }) {
                 >
                   Delete Entry
                 </Link>
-                <Link className="details-button" to={`/show/${job._id}`} >
+                <Link className="details-button" to={`/show/${job._id}`}>
                   More Details
                 </Link>
               </div>
             </div>
           ))}
-        </div>
-      
+      </div>
     </>
   );
 }

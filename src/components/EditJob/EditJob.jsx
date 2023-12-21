@@ -6,19 +6,19 @@ import * as jobsService from "../../utilities/jobs-service";
 export default function UpdateJobForm({ jobs, setJobs }) {
   const [job, setJob] = useState({
     jobTitle: "",
-        companyName: "",
-        status: "",
-        description: "",
-        submissionDate: "",
-        salary: "",
-        followUpDate: "",
+    companyName: "",
+    status: "",
+    description: "",
+    submissionDate: "",
+    salary: "",
+    followUpDate: "",
   });
 
   const [error, setError] = useState("");
   const { id } = useParams();
   useEffect(() => {
     const job = jobs.find((job) => job._id == id);
-    console.log(job);
+  
     if (job) setJob(job);
   }, [id]);
 
@@ -32,7 +32,7 @@ export default function UpdateJobForm({ jobs, setJobs }) {
   async function handleSubmit(event) {
     event.preventDefault();
     const updatedJob = await jobsService.updateJob(id, job);
-    console.log(updatedJob);
+    
     setJob(updatedJob);
 
     // Update the jobs state
@@ -73,7 +73,7 @@ export default function UpdateJobForm({ jobs, setJobs }) {
         <input
           type="date"
           name="status"
-          value={job.submissionDate }
+          value={job.submissionDate}
           onChange={handleChange}
           placeholder="Submission Date"
         />
@@ -103,9 +103,9 @@ export default function UpdateJobForm({ jobs, setJobs }) {
           <option value="Interview Scheduled">Interview Scheduled</option>
           <option value="Rejected">Rejected</option>
         </select>
-        <button >Submit Edit</button>
+        <button>Submit Edit</button>
       </form>
-        <button onClick={() => navigate("/")}>Back to List</button>
+      <button onClick={() => navigate("/")}>Back to List</button>
     </>
   );
 }

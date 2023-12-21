@@ -20,16 +20,28 @@ export default function JobDetail({ jobs }) {
         <p>Job Title: {job.jobTitle}</p>
         <p>Company: {job.companyName}</p>
         <p>Other Notes: {job.jobDescription}</p>
-        <p>Date Submitted: {new Date(job.submissionDate).toLocaleDateString("en-US")}</p>
+        <p>
+          Date Submitted:{" "}
+          {new Date(job.submissionDate).toLocaleDateString("en-US")}
+        </p>
         <p>Salary/Range: {job.salary}</p>
-        <p>Follow-up Date: {new Date(job.followUpDate).toLocaleDateString("en-US")}</p>
+        <p>
+          Follow-up Date:{" "}
+          {new Date(job.followUpDate).toLocaleDateString("en-US")}
+        </p>
         <p>Application Status: {job.status}</p>
       </div>
 
-      <Link id="details-edit-button" to={`/edit/${job._id}`} className="edit-button">
+      <Link
+        id="details-edit-button"
+        to={`/edit/${job._id}`}
+        className="edit-button"
+      >
         Edit Entry
       </Link>
-      <button id="details-back-button" onClick={() => navigate("/")}>Back to List</button>
+      <button id="details-back-button" onClick={() => navigate("/")}>
+        Back to List
+      </button>
     </>
   );
 }

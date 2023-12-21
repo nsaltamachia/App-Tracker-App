@@ -105,7 +105,7 @@ export default function UpdateJobForm({ jobs, setJobs }) {
         </select>
         <button >Submit Edit</button>
       </form>
-        <button onClick={() => navigate("/")}>BACK TO LIST</button>
+        <button onClick={() => navigate("/")}>Back to List</button>
     </>
   );
 }

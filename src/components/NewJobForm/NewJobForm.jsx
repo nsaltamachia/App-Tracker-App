@@ -51,7 +51,7 @@ function addSevenDays(dateString) {
 
     // Clear the New Job form on submission
     setNewJob({
-      jobTitle: "",
+    jobTitle: "",
     companyName: "",
     status: "",
     description: "",

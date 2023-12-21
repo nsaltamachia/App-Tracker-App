@@ -6,15 +6,19 @@ import * as jobsService from "../../utilities/jobs-service";
 export default function UpdateJobForm({ jobs, setJobs }) {
   const [job, setJob] = useState({
     jobTitle: "",
-    companyName: "",
-    status: "",
+        companyName: "",
+        status: "",
+        description: "",
+        submissionDate: "",
+        salary: "",
+        followUpDate: "",
   });
 
   const [error, setError] = useState("");
   const { id } = useParams();
   useEffect(() => {
     const job = jobs.find((job) => job._id == id);
-
+    console.log(job);
     if (job) setJob(job);
   }, [id]);
 
@@ -69,7 +73,7 @@ export default function UpdateJobForm({ jobs, setJobs }) {
         <input
           type="date"
           name="status"
-          value={job.submissionDate || ""}
+          value={job.submissionDate }
           onChange={handleChange}
           placeholder="Submission Date"
         />
@@ -81,7 +85,7 @@ export default function UpdateJobForm({ jobs, setJobs }) {
           placeholder="Salary/Range"
         />
         <input
-          type="text"
+          type="date"
           name="status"
           value={job.followUpDate}
           onChange={handleChange}

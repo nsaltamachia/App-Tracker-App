@@ -19,7 +19,6 @@ export async function deleteJob(id) {
     return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
 }
 
-
 export async function update( id, jobData) {
     return sendRequest(`${BASE_URL}/${id}`, 'PUT',  jobData );
 }

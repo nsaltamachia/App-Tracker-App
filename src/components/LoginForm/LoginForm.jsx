@@ -13,18 +13,30 @@ export default function LoginForm({ setUser }) {
     setError("");
   }
 
-  async function handleSubmit(evt) {
-    evt.preventDefault();
-    try {
-      // The promise returned by the signUp service method
-      // will resolve to the user object included in the
-      // payload of the JSON Web Token (JWT)
-      const user = await usersService.login(credentials);
-      setUser(user);
-    } catch {
-      setError("Log In Failed - Try Again");
-    }
+async function handleSubmit(evt) {
+  evt.preventDefault();
+  try {
+    const user = await usersService.login(credentials);
+    setUser(user);
+    // Reset the field inputs
+    setCredentials({ email: "", password: "" });
+  } catch {
+    setError("Log In Failed - Try Again");
   }
+}
+
+  // async function handleSubmit(evt) {
+  //   evt.preventDefault();
+  //   try {
+  //     // The promise returned by the signUp service method
+  //     // will resolve to the user object included in the
+  //     // payload of the JSON Web Token (JWT)
+  //     const user = await usersService.login(credentials);
+  //     setUser(user);
+  //   } catch {
+  //     setError("Log In Failed - Try Again");
+  //   }
+  // }
 
   return (
     <div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import * as jobsService from "../../utilities/jobs-service";
 
 export default function JobsList({ jobs, setJobs }) {
+  
   async function handleDelete(id) {
     try {
       // deletes the job from the database
@@ -17,14 +18,15 @@ export default function JobsList({ jobs, setJobs }) {
 
   return (
     <>
+      <h1>Existing Applications</h1>
       <div className="job-card-container">
         
-          {jobs.map((job, index) => (
+          {jobs.sort((a, b) => new Date(b.submissionDate) - new Date(a.submissionDate)).map((job, index) => (
             <div className="card-data" key={index}>
               <p>Job Title: {job.jobTitle}</p>
               <p>Company: {job.companyName}</p>
-              <p>Subit Date: {new Date(job.submissionDate).toLocaleDateString("en-US")}</p>
-              <p>Follow-up Date: {new Date(job.followUpDate).toLocaleDateString("en-US")}</p>
+              <p>Submit Date: {new Date(job.submissionDate).toLocaleDateString("en-US")}</p>
+              <p>Follow-up Date: {job.followUpDate ? new Date(job.followUpDate).toLocaleDateString("en-US") : "Not set"}</p>
               <p>Application Status: {job.status}</p>
               <br />
               <div className="button-container">

@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect  } from "react";
 import "./NewJobForm.css";
+import { useNavigate } from "react-router-dom";
 import * as jobsService from "../../utilities/jobs-service";
 
 export default function NewJobForm({ jobs, setJobs }) {
@@ -7,34 +8,65 @@ export default function NewJobForm({ jobs, setJobs }) {
     jobTitle: "",
     companyName: "",
     status: "",
+    description: "",
+    submissionDate: "",
+    salary: "",
+    followUpDate: "",
   });
 
   const [error, setError] = useState("");
 
-  function handleChange(event) {
-    setNewJob({ ...newJob, [event.target.name]: event.target.value });
-    setError("");
+  function addSevenDays(dateString) {
+  const date = new Date(dateString);
+  date.setDate(date.getDate() + 7);
+  return date.toISOString().slice(0, 10);
+}
+  // let navigate = useNavigate();
+
+  function handleChange(e) {
+  const { name, value } = e.target;
+  if (name === 'submissionDate') {
+    setNewJob({
+      ...newJob,
+      [name]: value,
+      followUpDate: addSevenDays(value),
+    });
+  } else {
+    setNewJob({
+      ...newJob,
+      [name]: value,
+    });
   }
+}
 
   async function handleSubmit(event) {
     event.preventDefault();
-    setJobs([...jobs, newJob]);
-    const createdJob = await jobsService.create(newJob);
-
-    console.log(createdJob);
-
-    // Add the newly created job to the jobs state
-    setJobs((prevJobs) => [...prevJobs, createdJob]);
-
-    // Clear the New Job form on submission
-    setNewJob({
-      jobTitle: "",
-      companyName: "",
-      status: "",
-    });
-  }
+    try {
+      const createdJob = await jobsService.create(newJob)
+      setJobs([...jobs, createdJob]);
+      console.log("please work...");
+    
+      // Clear the New Job form on submission
+      setNewJob({
+        jobTitle: "",
+        companyName: "",
+        status: "",
+        description: "",
+        submissionDate: "",
+        salary: "",
+        followUpDate: "",
+      });
+      // navigate("/");
+      
+      // window.location.reload(false);
+    } catch (error) {
+      console.log("error:", error);
+    }
+  };
 
   return (
+    <>
+    <h1>New Application Form</h1>
     <form className="new-job-form" onSubmit={handleSubmit}>
       <input
         type="text"
@@ -57,7 +89,6 @@ export default function NewJobForm({ jobs, setJobs }) {
         onChange={handleChange}
         placeholder="Type a short description"
       />
-
       <input
         type="date"
         name="submissionDate"
@@ -69,7 +100,6 @@ export default function NewJobForm({ jobs, setJobs }) {
         onChange={handleChange}
         placeholder="Date Submitted"
       />
-
       <input
         type="text"
         name="salary"
@@ -81,14 +111,13 @@ export default function NewJobForm({ jobs, setJobs }) {
         type="date"
         name="followUpDate"
         value={
-          newJob.followUpdate
+          newJob.followUpDate
             ? new Date(newJob.followUpDate).toISOString().slice(0, 10)
             : ""
         }
         onChange={handleChange}
-        placeholder="Follow-up Date"
+        placeholder="Follow Up Date"
       />
-
       <select
         name="status"
         value={newJob.status}
@@ -105,6 +134,7 @@ export default function NewJobForm({ jobs, setJobs }) {
       <button id="add-job-button" type="submit">
         ADD JOB
       </button>
-    </form>
+      </form>
+      </>
   );
 }

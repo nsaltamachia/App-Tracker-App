@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
+import "./EditJob.css";
 import * as jobsService from "../../utilities/jobs-service";
 
 export default function UpdateJobForm({ jobs, setJobs }) {
@@ -8,6 +8,10 @@ export default function UpdateJobForm({ jobs, setJobs }) {
     jobTitle: "",
     companyName: "",
     status: "",
+    description: "",
+    submissionDate: "",
+    salary: "",
+    followUpDate: "",
   });
 
   const [error, setError] = useState("");
@@ -39,12 +43,15 @@ export default function UpdateJobForm({ jobs, setJobs }) {
     navigate("/");
   }
 
+
+    
+
   return (
     <>
       <h1>
         Edit "{job.jobTitle}" at {job.companyName}
       </h1>
-      <form onSubmit={handleSubmit}>
+      <form className="edit-job-form" onSubmit={handleSubmit}>
         <input
           type="text"
           name="jobTitle"
@@ -81,12 +88,16 @@ export default function UpdateJobForm({ jobs, setJobs }) {
           placeholder="Salary/Range"
         />
         <input
-          type="text"
-          name="status"
-          value={job.followUpDate}
-          onChange={handleChange}
-          placeholder="Follow Up Date"
-        />
+        type="date"
+        name="followUpDate"
+        value={
+          newJob.followUpDate
+            ? new Date(newJob.followUpDate).toISOString().slice(0, 10)
+            : ""
+        }
+        onChange={handleChange}
+        placeholder="Follow Up Date"
+      />
         <select
           name="status"
           value={job.status}

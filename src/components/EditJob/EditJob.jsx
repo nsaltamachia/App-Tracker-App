@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
+import "./EditJob.css";
 import * as jobsService from "../../utilities/jobs-service";
 
 export default function UpdateJobForm({ jobs, setJobs }) {
@@ -48,7 +48,7 @@ export default function UpdateJobForm({ jobs, setJobs }) {
       <h1>
         Edit "{job.jobTitle}" at {job.companyName}
       </h1>
-      <form onSubmit={handleSubmit}>
+      <form className="edit-job-form" onSubmit={handleSubmit}>
         <input
           type="text"
           name="jobTitle"
@@ -103,9 +103,9 @@ export default function UpdateJobForm({ jobs, setJobs }) {
           <option value="Interview Scheduled">Interview Scheduled</option>
           <option value="Rejected">Rejected</option>
         </select>
-        <button>Submit Edit</button>
-        <button onClick={() => navigate("/")}>BACK TO LIST</button>
+        <button >Submit Edit</button>
       </form>
+        <button onClick={() => navigate("/")}>BACK TO LIST</button>
     </>
   );
 }

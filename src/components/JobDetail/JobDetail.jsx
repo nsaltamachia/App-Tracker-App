@@ -26,10 +26,10 @@ export default function JobDetail({ jobs }) {
         <p>Application Status: {job.status}</p>
       </div>
 
-      <Link to={`/edit/${job._id}`} className="edit-button">
+      <Link id="details-edit-button" to={`/edit/${job._id}`} className="edit-button">
         Edit Entry
       </Link>
-      <button onClick={() => navigate("/")}>BACK TO LIST</button>
+      <button id="details-back-button" onClick={() => navigate("/")}>Back to List</button>
     </>
   );
 }

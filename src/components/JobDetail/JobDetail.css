@@ -16,3 +16,19 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     
 }
+
+#details-edit-button{
+    background-color: #2A64F6;
+    color: white;
+    border-radius: 5px;
+    padding: 1rem;
+    font-size: 1.rem
+}
+
+#details-back-button {
+    font-size: 1rem;
+     padding: .75rem;
+    background-color: #2A64F6;
+    color: white;
+    border-radius: 5px;
+}

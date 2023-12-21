@@ -1,0 +1,17 @@
+.edit-job-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 60px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+
+.edit-job-form > button{
+    grid-column-start: 2;
+    grid-row-start: 5;
+    width: 65%;
+    
+}

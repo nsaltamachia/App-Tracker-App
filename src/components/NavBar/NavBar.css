@@ -4,14 +4,14 @@ nav {
 }
 
 span {
-    font-size: 1.7rem;
+    font-size: 2rem;
     color: rgb(246, 250, 3);
     text-shadow: -2px 1px 4px #2A64F6;
 }
 
 #welcome {
     
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(240, 240, 240);
     font-size: 1.5rem;
     font-weight: bold;
     margin: 5px;

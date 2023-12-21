@@ -7,14 +7,37 @@ export default function NewJobForm({ jobs, setJobs }) {
     jobTitle: "",
     companyName: "",
     status: "",
+    description: "",
+    submissionDate: "",
+    salary: "",
+    followUpDate: "",
   });
+
+function addSevenDays(dateString) {
+  const date = new Date(dateString);
+  date.setDate(date.getDate() + 7);
+  return date.toISOString().slice(0, 10);
+}
 
   const [error, setError] = useState("");
 
-  function handleChange(event) {
-    setNewJob({ ...newJob, [event.target.name]: event.target.value });
-    setError("");
+  
+
+  function handleChange(e) {
+  const { name, value } = e.target;
+  if (name === 'submissionDate') {
+    setNewJob({
+      ...newJob,
+      [name]: value,
+      followUpDate: addSevenDays(value),
+    });
+  } else {
+    setNewJob({
+      ...newJob,
+      [name]: value,
+    });
   }
+}
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -29,12 +52,18 @@ export default function NewJobForm({ jobs, setJobs }) {
     // Clear the New Job form on submission
     setNewJob({
       jobTitle: "",
-      companyName: "",
-      status: "",
+    companyName: "",
+    status: "",
+    description: "",
+    submissionDate: "",
+    salary: "",
+    followUpDate: "",
     });
   }
 
   return (
+    <>
+      <h1>New Application Form</h1>
     <form className="new-job-form" onSubmit={handleSubmit}>
       <input
         type="text"
@@ -81,7 +110,7 @@ export default function NewJobForm({ jobs, setJobs }) {
         type="date"
         name="followUpDate"
         value={
-          newJob.followUpdate
+          newJob.followUpDate
             ? new Date(newJob.followUpDate).toISOString().slice(0, 10)
             : ""
         }
@@ -105,6 +134,7 @@ export default function NewJobForm({ jobs, setJobs }) {
       <button id="add-job-button" type="submit">
         ADD JOB
       </button>
-    </form>
+      </form>
+      </>
   );
 }

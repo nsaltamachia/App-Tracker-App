@@ -9,14 +9,22 @@ Have you ever gotten a call back about a job that you don't remember applying to
 
 It's very simple, but I think having a log of these applications will help me stay on top of my job hunt, and avoid some awkward phone calls...
 
-The home page contains a "new job form," which includes:
--Job title
--Company name
--Room for a short description of the role
--Salary range
--A selector for updating the application's status(submitted, pending follow-up, interview scheduled, and...rejected) 
--A picker for the application submission date
--A picker for a follow-up reminder
+The home page contains a "new job form," which includes:  
+
+-Job title  
+
+-Company name  
+
+-Room for a short description of the role  
+
+-Salary range  
+
+-A selector for updating the application's status(submitted, pending follow-up, interview scheduled, and...rejected)   
+
+-A picker for the application submission date  
+
+-A picker to list a follow-up date  
+
 
 The home page also presents a card list of all of the applications I've filed. These "Job Cards" present trimmed-down information from the larger form, and have buttons for navigation to the job's edit and "more details" page, along with a delete button.
 
@@ -24,35 +32,56 @@ The home page also presents a card list of all of the applications I've filed. T
 
 ![Alt text](<assets/Job detail.png>)
 
-Technologies used:
-MongoDB 
-Express
-React
-Node
-AWS S3 bucket (for future features)
+TECHNOLOGIES USED:  
+
+MongoDB  
+
+Express  
+
+React  
+
+Node  
+
+AWS S3 bucket (for future features)  
 
 
-Nifty Code:
+
+  
+NIFTY CODE:  
+
 -Automatic follow-up date picking, set to 7 days after the selected submission date
 
 ![Alt text](<assets/Auto Date Selector.png>)
 
-Next Steps:
--Incorporate use profiles so that any user can privately store their own applications
 
--Incorporate a counter in the applications list 
 
--Add a document upload feature to store bespoke resumes and cover letters, with a quickview feature and ability to download documents
+GREMLINS I COULDN'T SQUASH:  
+-While I CAN get newly-created jobs to render immediately, I can only seem to get them to do so through the state update, and not from a fetch call (with the database-created ID). So, a newly-created job won't have the ability to edit, delete, or view details until after a page refresh (or other navigation). I have tried to run useNavigate in my handleSubmit function to get the re-render to occur as the new objecct is created, but no luck so far.
 
--Add a Contacts form to add key figures and their contact information within each application 
+NEXT STEPS:  
 
--Add work type(remote?), city, and state fields in the "New Application" form
+-Incorporate use profiles so that any user can privately store their own applications  
+
+
+-Incorporate a counter in the applications list   
+
+
+-Add a document upload feature to store bespoke resumes and cover letters, with a quickview feature and ability to download documents  
+
+
+-Add a Contacts form to add key figures and their contact information within each application   
+
+
+-Add work type(remote?), city, and state fields in the "New Application" form  
+
 
 -Incorporate a calendar page that will show dates of applications filed, dates you've scheduled follow-ups, and the ability to add interviews as they are offered
     -Day-of alerts for follow-ups you ened to make
-    -Ability to add other appointments, like interviews
+    -Ability to add other appointments, like interviews  
+    
 
--Swap automatic follow-up date picker in "New Application" form for an automated alert date selector with a field for relevant information like POCs and their contact information
+-Swap automatic follow-up date picker in "New Application" form for an automated alert date selector with a field for relevant information like POCs and their contact information  
+
 
 -Add a 3rd-party motivational quote generator, becuase sometimes you need a little extra
 

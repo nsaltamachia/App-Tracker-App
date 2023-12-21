@@ -20,8 +20,9 @@ The home page contains a "new job form," which includes:
 
 The home page also presents a card list of all of the applications I've filed. These "Job Cards" present trimmed-down information from the larger form, and have buttons for navigation to the job's edit and "more details" page, along with a delete button.
 
-☐ Screenshot(s): A screenshot of your app's landing page and any other screenshots of interest.
+![Alt text](<assets/Home Page.png>)
 
+![Alt text](<assets/Job detail.png>)
 
 Technologies used:
 MongoDB 
@@ -34,7 +35,7 @@ AWS S3 bucket (for future features)
 Nifty Code:
 -Automatic follow-up date picking, set to 7 days after the selected submission date
 
-
+![Alt text](<assets/Auto Date Selector.png>)
 
 Next Steps:
 -Incorporate use profiles so that any user can privately store their own applications

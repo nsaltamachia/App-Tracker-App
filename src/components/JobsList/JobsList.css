@@ -5,11 +5,11 @@
 
 
 .job-card-container{
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 15px;
-    grid-row-gap: 15px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    justify-content: flex-start;
      
 }
 
@@ -21,6 +21,7 @@
     box-shadow: -2px 2px 5px rgba(111, 111, 111, 0.75);
     padding: 10px;
     border-radius:5px;
+    margin: 10px;
 }
 
 .button-container {

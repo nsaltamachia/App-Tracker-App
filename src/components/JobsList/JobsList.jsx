@@ -17,9 +17,10 @@ export default function JobsList({ jobs, setJobs }) {
 
   return (
     <>
+      <h1>Existing Applications</h1>
       <div className="job-card-container">
         
-          {jobs.map((job, index) => (
+          {jobs.sort((a, b) => new Date(b.submissionDate) - new Date(a.submissionDate)).map((job, index) => (
             <div className="card-data" key={index}>
               <p>Job Title: {job.jobTitle}</p>
               <p>Company: {job.companyName}</p>
